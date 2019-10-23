@@ -1,0 +1,23 @@
+#+TITLE: PostgreSQL Notes
+
+* how to
+** create database
+#+BEGIN_SRC sql
+CREATE DATABASE dbname;
+#+END_SRC
+** create user
+#+BEGIN_SRC sql
+CREATE USER dbname WITH PASSWORD 'dbname';
+#+END_SRC
+** grant all privileges to a user
+#+BEGIN_SRC sql
+GRANT ALL PRIVILEGES ON DATABASE dbname TO dbname;
+#+END_SRC
+** set path to a schema/shard
+#+BEGIN_SRC sql
+SET search_path TO shard_name;
+#+END_SRC
+** set timezone
+#+BEGIN_SRC sql
+SET TIMEZONE TO 'UTC';
+#+END_SRC
