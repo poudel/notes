@@ -5,19 +5,72 @@
 #+BEGIN_SRC sql
 CREATE DATABASE dbname;
 #+END_SRC
+
 ** create user
 #+BEGIN_SRC sql
 CREATE USER dbname WITH PASSWORD 'dbname';
 #+END_SRC
+
 ** grant all privileges to a user
 #+BEGIN_SRC sql
 GRANT ALL PRIVILEGES ON DATABASE dbname TO dbname;
 #+END_SRC
+
 ** set path to a schema/shard
 #+BEGIN_SRC sql
 SET search_path TO shard_name;
 #+END_SRC
+
 ** set timezone
 #+BEGIN_SRC sql
 SET TIMEZONE TO 'UTC';
 #+END_SRC
+
+** get a list of tables in a schema
+#+BEGIN_SRC sql
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'
+#+END_SRC
+
+** run pgcli in ipython
+
+From the documentation of pgcli:
+
+Pgcli can be run from within IPython console. When working on a query,
+it may be useful to drop into a pgcli session without leaving the
+IPython console, iterate on a query, then quit pgcli to find the query
+results in your IPython workspace.
+
+[[https://www.pgcli.com/ipython][https://www.pgcli.com/ipython]]
+
+#+BEGIN_SRC shell
+ipython
+
+%load_ext pgcli.magic
+%pgcli postgres://user:password@host:5432/db
+
+SELECT * FROM somewhere;
+#+END_SRC
+
+Hit `C-d` to exit and find the result in the ipython shell
+
+** connect using ssh tunnel
+
+Create the tunnel
+
+#+BEGIN_SRC shell
+ssh -L 3333:foo.com:5432 joe@foo.com
+#+END_SRC
+
+Now, connect to the database:
+
+#+BEGIN_SRC shell
+psql -h localhost -p 3333 postgres
+#+END_SRC
+
+More detail: https://www.postgresql.org/docs/8.2/ssh-tunnels.html
+
+** connect pgadmin to ssh tunnel server
+
+Follow the step above and connect to it as any normal database. No
+need to use the tunnel option in pgadmin connect window because it is
+not necessary.

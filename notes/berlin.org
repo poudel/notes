@@ -1,0 +1,14 @@
+* Apartment search
+** Message to potential landlord, in German
+#+BEGIN_SRC text
+Guten Tag,
+
+Ich habe Interesse die Wohnung zu mieten. Ich möchte einen Termin für
+Besichtigungstermin vereinbaren. Bitte antworten Sie mir zurück.
+
+Vielen Dank
+
+Freundliche Grüße
+Keshab Paudel
+Telefonnummer: XXXX XXXXXXX
+#+END_SRC
