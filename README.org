@@ -1,3 +1,6 @@
 Notes from the underground
 
-* [[file:notes/postgresql.org][PostgreSQL]]
+* TOC
+** [[file:notes/berlin.org][Berlin]]
+** [[file:notes/postgresql.org][PostgreSQL]]
+** [[file:notes/python.org][Python]]

@@ -1,0 +1,53 @@
+
+* how to
+
+* modules/packages
+** [[https://pexpect.readthedocs.io/en/stable/][pexpect]]: to control other application, to test cli/shell output
+
+* snippets/examples of
+** config class
+#+BEGIN_SRC python
+import os
+from dataclasses import dataclass, fields
+
+
+class ConfigMissing(Exception):
+
+    def __init__(self, missing):
+        self.missing = missing
+        msg = f"Missing environment variables: {missing}"
+        super().__init__(msg)
+
+
+@dataclass
+class Config:
+    ENV_VAR_PREFIX = "PREFIX"
+
+    OPT_REQUIRED: str
+    OPT_DEFAULT: str
+
+    @classmethod
+    def from_environment(cls):
+        defaults = {
+            "OPT_DEFAULT": "default-value",
+        }
+        values = {}
+        missing = []
+
+        for field in fields(cls):
+            default = defaults.get(field.name)
+
+            env_var_name = f"{cls.ENV_VAR_PREFIX}_{field.name}"
+            value = os.environ.get(env_var_name, default)
+
+            if value is None:
+                missing.append(env_var_name)
+                continue
+
+            values[field.name] = value
+
+        if missing:
+            raise ConfigMissing(missing)
+        return cls(**values)
+
+#+END_SRC

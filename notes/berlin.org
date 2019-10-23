@@ -1,3 +1,8 @@
+* Links
+** [[https://anmeldung.sorted.berlin/][Anmeldung online form]]
+** [[https://www.berlin.de/labo/willkommen-in-berlin/aufenthalt/erwerbstaetigkeit/beschaeftigung/artikel.599046.en.php][Employment - foreign workers]]
+** [[https://www.berlin.de/labo/willkommen-in-berlin/dienstleistungen/service.245714.php/dienstleistung/326856/en/][Changing your employer]]
+
 * Apartment search
 ** Message to potential landlord, in German
 #+BEGIN_SRC text
