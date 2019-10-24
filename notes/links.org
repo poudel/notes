@@ -1,0 +1,7 @@
+Interesting links in the interwebs
+
+* Personal knowledge bases
+** [[https://wiki.nikitavoloboev.xyz/][Everything I Know]] by Nikita Voloboev
+
+This wiki was also acted as the final push that was needed to make me
+start my own.

@@ -17,11 +17,18 @@ GRANT ALL PRIVILEGES ON DATABASE dbname TO dbname;
 #+END_SRC
 
 ** set path to a schema/shard
+
+This sets the search path to the given schema for subsequent queries
+in the current session.
+
 #+BEGIN_SRC sql
 SET search_path TO shard_name;
 #+END_SRC
 
 ** set timezone
+
+Sets the timezone for subsequent queries in the current session.
+
 #+BEGIN_SRC sql
 SET TIMEZONE TO 'UTC';
 #+END_SRC
@@ -74,3 +81,147 @@ More detail: https://www.postgresql.org/docs/8.2/ssh-tunnels.html
 Follow the step above and connect to it as any normal database. No
 need to use the tunnel option in pgadmin connect window because it is
 not necessary.
+
+** ephemeral dataset using ~WITH~
+
+This makes it easy to test a concept or a query.
+
+Running the query,
+
+#+BEGIN_SRC sql
+WITH tbl_values (date, value)  AS (VALUES
+  ('2019-10-01'::timestamptz, 10),
+  ('2019-10-02'::timestamptz, 11),
+  ('2019-10-03'::timestamptz, 12),
+  ('2019-10-04'::timestamptz, 13),
+  ('2019-10-05'::timestamptz, 14),
+  ('2019-10-06'::timestamptz, 15)
+)
+SELECT * FROM tbl_values
+#+END_SRC
+
+would return:
+
+#+BEGIN_SRC text
+          date          | value 
+------------------------+-------
+ 2019-10-01 00:00:00+02 |    10
+ 2019-10-02 00:00:00+02 |    11
+ 2019-10-03 00:00:00+02 |    12
+ 2019-10-04 00:00:00+02 |    13
+ 2019-10-05 00:00:00+02 |    14
+ 2019-10-06 00:00:00+02 |    15
+(6 rows)
+#+END_SRC
+
+** time bucketing
+
+Use ~date_trunc~ function to do time-bucketing.
+
+#+BEGIN_SRC sql
+WITH tbl_values (date, value)  AS (VALUES
+  ('2019-10-01'::timestamptz, 10),
+  ('2019-10-02'::timestamptz, 11),
+  ('2019-10-03'::timestamptz, 12),
+  ('2019-10-04'::timestamptz, 13),
+  ('2019-10-05'::timestamptz, 14),
+  ('2019-10-06'::timestamptz, 15)
+)
+SELECT date_trunc('week', date), value FROM tbl_values;
+#+END_SRC
+
+Would return 
+
+#+BEGIN_SRC text
+       date_trunc       | value 
+------------------------+-------
+ 2019-09-30 00:00:00+02 |    10
+ 2019-09-30 00:00:00+02 |    11
+ 2019-09-30 00:00:00+02 |    12
+ 2019-09-30 00:00:00+02 |    13
+ 2019-09-30 00:00:00+02 |    14
+ 2019-09-30 00:00:00+02 |    15
+(6 rows)
+#+END_SRC
+
+It shifted the date to the first day of the week in the dataset. Since
+~2019-10-01~ is a Tuesday, the Monday of that week fell on the earlier month.
+
+To fix that, it is possible to use the ~GREATEST~ function when the
+start date is known.
+
+The bucketed values can be aggregated in number of ways. Example: Using ~SUM~.
+
+#+BEGIN_SRC sql
+WITH tbl_values (date, value)  AS (VALUES
+  ('2019-10-01'::timestamptz, 10),
+  ('2019-10-02'::timestamptz, 11),
+  ('2019-10-03'::timestamptz, 12),
+  ('2019-10-04'::timestamptz, 13),
+  ('2019-10-05'::timestamptz, 14),
+  ('2019-10-06'::timestamptz, 15)
+)
+SELECT date, SUM(value) FROM (
+  SELECT date_trunc('week', date) AS date, value FROM tbl_values
+) AS values
+GROUP BY date;
+#+END_SRC
+
+will return
+
+#+BEGIN_SRC text
+          date          | sum 
+------------------------+-----
+ 2019-09-30 00:00:00+02 |  75
+(1 row)
+#+END_SRC
+
+** generate date series
+
+Running,
+
+#+BEGIN_SRC sql
+SELECT * FROM generate_series('2019-10-01', '2019-10-11', interval '1' day) AS series
+#+END_SRC
+
+will give:
+
+#+BEGIN_SRC text
+         series         
+------------------------
+ 2019-10-01 00:00:00+02
+ 2019-10-02 00:00:00+02
+ 2019-10-03 00:00:00+02
+ 2019-10-04 00:00:00+02
+ 2019-10-05 00:00:00+02
+ 2019-10-06 00:00:00+02
+ 2019-10-07 00:00:00+02
+ 2019-10-08 00:00:00+02
+ 2019-10-09 00:00:00+02
+ 2019-10-10 00:00:00+02
+ 2019-10-11 00:00:00+02
+(11 rows)
+#+END_SRC
+
+** named window functions
+
+#+BEGIN_SRC sql
+SELECT ...
+WHERE ...
+WINDOW mywindow AS (
+  PARTITION BY field1
+),
+mywindow2 AS (PARTITION BY field2)
+ORDER BY ...
+#+END_SRC
+
+* extensions and use cases
+
+** timescaledb
+[[https://docs.timescale.com/latest/introduction][TimescaleDB]] is an open-source time-series database optimized for fast
+ingest and complex queries. It can be installed as PostgreSQL extension.
+
+Read: [[https://docs.timescale.com/latest/tutorials/tutorial-hello-nyc][Hello NYC timescaledb tutorial]]
+
+* need to read about
+** anti joins

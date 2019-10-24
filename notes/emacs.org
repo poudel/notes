@@ -2,3 +2,4 @@
 * Links
 ** [[https://ambrevar.xyz/emacs-eshell/][Eshell as the main shell]]
 ** [[https://ambrevar.xyz/emacs-everywhere/][Emacs everywhere]]
+** [[https://www.masteringemacs.org/article/complete-guide-mastering-eshell][Mastering Eshell]]
