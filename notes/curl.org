@@ -1,0 +1,32 @@
+#+TITLE: Learning cURL
+
+cURL has been one of those things that I've always encountered more
+than a few times but never bothered to actually learn it properly. I
+want to change that. I figured that the best place to start would be
+to read the [[https://ec.haxx.se][Everything cURL]] official book.
+
+A nice quote from the book itself:
+
+#+BEGIN_QUOTE
+Everything and anything that is related to Internet protocol transfers
+can be considered curl's business. Things that are not related to that
+should be avoided and be left for other projects and products.
+#+END_QUOTE
+
+[[https://ec.haxx.se/protocols-network.html][Networking simplified]] is really simple explaination of network.
+
+#+BEGIN_QUOTE
+As curl gets a list of addresses for the host, it will actually
+traverse that list of addresses when connecting and in case one
+fails it will try to connect to the next one until either one works
+or they all fail.
+#+END_QUOTE
+
+The communication process looks something like this:
+
+1. Resolve the given domain to the host addressess.
+2. Try to make a TCP connection to one of the host(s).
+3. If there is TLS, do a TLS handshake.
+4. Once connected, transfer data using the given protocol.
+
+   

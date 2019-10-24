@@ -15,5 +15,6 @@ some sort of ad-hoc semantic hierarchy.
 *** [[file:notes/python.org][Python]]
 *** [[file:notes/emacs.org][Emacs]]
 *** [[file:notes/learning-language.org][Learning programming languages]]
+*** [[file:notes/curl.org][Learning cURL]]
 ** Other
 ** [[file:notes/berlin.org][Berlin]]
