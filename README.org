@@ -4,3 +4,4 @@ Notes from the underground
 ** [[file:notes/berlin.org][Berlin]]
 ** [[file:notes/postgresql.org][PostgreSQL]]
 ** [[file:notes/python.org][Python]]
+** [[file:notes/emacs.org][Emacs]]
