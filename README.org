@@ -1,7 +1,19 @@
-Notes from the underground
+#+TITLE: Knowledge Base
+#+AUTHOR: Keshab Paudel
 
-* TOC
+Visitor!
+
+This is supposed to be my personal knowledge base. How it works is I
+collect information that is interesting to me and make an entry here.
+
+This is the index page. The intention is to directly link pages in
+some sort of ad-hoc semantic hierarchy.
+
+* Index
+** Tech
+*** [[file:notes/postgresql.org][PostgreSQL]]
+*** [[file:notes/python.org][Python]]
+*** [[file:notes/emacs.org][Emacs]]
+*** [[file:notes/learning-language.org][Learning programming languages]]
+** Other
 ** [[file:notes/berlin.org][Berlin]]
-** [[file:notes/postgresql.org][PostgreSQL]]
-** [[file:notes/python.org][Python]]
-** [[file:notes/emacs.org][Emacs]]

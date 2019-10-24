@@ -1,0 +1,61 @@
+#+TITLE: [WIP] Learning new programming language
+
+* Introduction
+
+Learning a new programming language is not always easy. For me, the
+most difficult part is to find something that I would like to build
+along the process.
+
+It is difficult to find such projects because there are two major
+contradicting requirements: first, they should not be so big so that
+you give up, second, they should not be so trivial so that you don't
+explore the language features well. I think the imbalance of these two
+requirements leads to interruptions in the learning process.
+
+I want to make a collection of project ideas that I would like to work
+on whenever I want to try out a new language.
+
+* Projects
+
+** Fundamentals
+
+These tasks are supposed to make me comfortable with the basic data
+structure, control flow, syntax et cetera of the language. They are
+supposed to be trivial in nature and should not take too long to
+accomplish.
+
+1. Write a command line app that accepts a list of URL, downloads and
+   saves them as per the content type of the response.
+2. 
+   
+** Exploring the world
+
+These are supposed to allow me to use language tools, libraries et
+cetera to interact with the real world. Things that require network,
+disk, and/or database access should fall into this section.
+
+1. Write a simple static site generator. You can port
+   [[https://github.com/poudel/harmonique]].
+
+2. Write a clone of [[https://httpbin.org]] with a subset of the actual
+   APIs if not everything. It is supposed to teach me how to write a
+   trivial http server in that language.
+
+** Applied
+
+Some languages are general purpose. Some are suited for certain type
+of tasks. I believe that we should always strive to use the best tool
+possible for the given task.
+
+The tasks in this system are supposed to teach me how to build
+full-fledged application using the language. The tasks can vary across
+the language. If the language is popular for web developments, the
+task should be to build web applications and so on.
+
+In short, this section should allow me to apply the skills from
+previous sections to create something.
+
+1. Port [[http://norvig.com/lispy.html][lispy]], the educational lisp interpreter by Peter Norvig.
+2. Write a simple database copy application that accepts credentials
+   for source and target database, and the name of table that needs to
+   be migrated to the target database.
