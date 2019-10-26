@@ -17,9 +17,9 @@ should be avoided and be left for other projects and products.
 
 #+BEGIN_QUOTE
 As curl gets a list of addresses for the host, it will actually
-traverse that list of addresses when connecting and in case one
-fails it will try to connect to the next one until either one works
-or they all fail.
+traverse that list of addresses when connecting and in case one fails
+it will try to connect to the next one until either one works or they
+all fail.
 #+END_QUOTE
 
 The communication process looks something like this:
@@ -29,4 +29,6 @@ The communication process looks something like this:
 3. If there is TLS, do a TLS handshake.
 4. Once connected, transfer data using the given protocol.
 
-   
+
+- cURL supports about 22 protocols [[https://ec.haxx.se/protocols-curl.html][source]]
+[[https://daniel.haxx.se/docs/curl-vs-wget.html][- curl vs wget]]

@@ -1,0 +1,128 @@
+#+TITLE: Learning common-lisp
+
+* Practical Common Lisp Chapter 3 - A simple database
+
+I'm trying to build a simple MP3 CD database in common lisp by following [[http://www.gigamonkeys.com/book/practical-a-simple-database.html][this
+chapter]] of the book.
+
+Lists are created using the function ~list~
+
+#+BEGIN_SRC common-lisp
+(list 1 2 3 4)
+#+END_SRC
+
+There is a special kind of list called property list
+
+From the book: property list (plist) is a list where every other
+element, starting with the first is a symbol that describes what the
+next element in the list is.
+
+Keyword symbol is a symbol that starts with a colon ~:~.
+
+#+BEGIN_SRC common-lisp
+(list :a 1 :b 2 :c 3 :d 4)
+#+END_SRC
+
+Use ~getf~ function to get an item from a plist.
+
+#+BEGIN_SRC common-lisp
+(getf (list :a 1) :a)
+#+END_SRC
+
+Try to ~getf~ with a non-existent key, will return ~nil~.
+
+#+BEGIN_SRC common-lisp
+(getf (list :a 1) :b)
+#+END_SRC
+
+A function, ~make-cd~
+
+#+BEGIN_SRC common-lisp
+(defun make-cd (title artist rating ripped)
+  (list :title title :artist artist :rating rating :ripped ripped))
+#+END_SRC
+
+Using ~defun~ is how we define a function.
+
+Let's make an entry,
+
+#+BEGIN_SRC common-lisp
+(make-cd "Moonlight Sonata" "Ludwig van Beethoven" 5 t)
+#+END_SRC
+
+** A proper database
+
+Define global variable ~*db*~. The ~**~ asterisks are a lisp
+convention.
+
+#+BEGIN_SRC common-lisp
+(defvar *db* nil)
+
+(defun add-record (cd) (push cd *db*))
+#+END_SRC
+
+Now we can save records in our ~*db*~.
+
+#+BEGIN_SRC common-lisp
+(add-record (make-cd "Moonlight Sonata" "Ludwig van Beethoven" 5 t))
+(add-record (make-cd "Starman" "David Bowie" 5 t))
+(add-record (make-cd "Beatles" "While My Guitar Gently Weeps" 5 t))
+(add-record (make-cd "Led Zeplin" "Kashmir" 5 t))
+#+END_SRC
+
+The return value of ~add-record~ will be the return of the last
+expression in the function, i.e. the whole ~*db*~ list.
+
+To see the database, run:
+
+#+BEGIN_SRC common-lisp
+*db*
+#+END_SRC
+
+Let me write a ~(dump-db)~ function that prints a better and helpful
+output.
+
+#+BEGIN_SRC common-lisp
+(defun dump-db ()
+  (dolist (cd *db*)
+    (format t "~{~a:~10t~a~%~}~%" cd)))
+#+END_SRC
+
+To make it interactive, add ~prompt-read~, ~prompt-for-cd~ and
+~add-cds~ functions. The code looks like this now:
+
+#+BEGIN_SRC common-lisp
+(defvar *db* nil)
+
+(defun add-record (cd) (push cd *db*))
+
+
+(defun make-cd (title artist rating ripped)
+  (list :title title :artist artist :rating rating :ripped ripped))
+
+
+(defun dump-db ()
+  (dolist (cd *db*)
+    (format t "~{~a:~10t~a~%~}~%" cd)))
+
+
+(defun prompt-read (prompt)
+  (format *query-io* "~a: " prompt)
+  (force-output *query-io*)
+  (read-line *query-io*))
+
+
+(defun prompt-for-cd ()
+  (make-cd
+    (prompt-read "Title")
+    (prompt-read "Artist")
+    (or (parse-integer (prompt-read "Rating") :junk-allowed t) 0)
+    (y-or-n-p "Ripped [y/n]")))
+
+
+(defun add-cds ()
+  (loop (add-record (prompt-for-cd))
+      (if (not (y-or-n-p "Another? [y/n]: ")) (return))))
+#+END_SRC
+
+

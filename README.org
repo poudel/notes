@@ -14,7 +14,9 @@ some sort of ad-hoc semantic hierarchy.
 *** [[file:notes/postgresql.org][PostgreSQL]]
 *** [[file:notes/python.org][Python]]
 *** [[file:notes/emacs.org][Emacs]]
-*** [[file:notes/learning-language.org][Learning programming languages]]
-*** [[file:notes/curl.org][Learning cURL]]
+*** Learning
+**** [[file:notes/learning-language.org][Learning programming languages]]
+**** [[file:notes/common-lisp.org][Learning common-lisp]]
+**** [[file:notes/curl.org][Learning cURL]]
 ** Other
 ** [[file:notes/berlin.org][Berlin]]

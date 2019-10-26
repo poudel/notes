@@ -4,7 +4,35 @@
 * modules/packages
 ** [[https://pexpect.readthedocs.io/en/stable/][pexpect]]: to control other application, to test cli/shell output
 
+
 * snippets/examples of
+
+** call an async function without await
+
+A function decorated with ~async~ decorator can be called without
+~await~ keyword. It will run the async function in an event loop by
+hook or crook.
+
+#+BEGIN_SRC python
+def async(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+
+        try:
+            loop = asyncio.get_event_loop()
+        except RuntimeError:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+
+        if loop.is_running():
+            return func(*args, **kwargs)
+        return loop.run_until_complete(
+            func(*args, **kwargs)
+        )
+
+    return wrapper
+#+END_SRC
+
 ** config class
 #+BEGIN_SRC python
 import os

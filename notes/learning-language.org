@@ -15,6 +15,8 @@ requirements leads to interruptions in the learning process.
 I want to make a collection of project ideas that I would like to work
 on whenever I want to try out a new language.
 
+** TODO maybe try to steal some ideas from https://github.com/seven1m/30-days-of-elixir
+
 * Projects
 
 ** Fundamentals
