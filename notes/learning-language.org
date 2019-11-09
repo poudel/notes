@@ -43,6 +43,14 @@ This was supposed to make me a bit more familiar with the Go syntax
 and the std library. I've attempted to do Go before but I needed a
 refresher.
 
+*** Write a simple shell
+
+Is supposed to teach me how to work with user input.
+
+**** [[https://github.com/poudel/go-toy-shell][Go toy shell]]
+
+I learned how to take input from the user.
+
 ** Exploring the world
 
 These are supposed to allow me to use language tools, libraries et
