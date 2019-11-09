@@ -26,22 +26,46 @@ structure, control flow, syntax et cetera of the language. They are
 supposed to be trivial in nature and should not take too long to
 accomplish.
 
-1. Write a command line app that accepts a list of URL, downloads and
-   saves them as per the content type of the response.
-2. 
-   
+*** URL Spy
+
+Write a command line application that takes a list of URL, fetches
+them and provides meta information such as hostname, IP,
+request/response time, opengraph information et cetera.
+
+*** URL Downloader
+
+Write a command line app that accepts a list of URL, downloads and
+saves them as per the content type of the response.
+
+**** [[https://github.com/poudel/go-save-url][go-save-url]]
+
+This was supposed to make me a bit more familiar with the Go syntax
+and the std library. I've attempted to do Go before but I needed a
+refresher.
+
 ** Exploring the world
 
 These are supposed to allow me to use language tools, libraries et
 cetera to interact with the real world. Things that require network,
 disk, and/or database access should fall into this section.
 
-1. Write a simple static site generator. You can port
-   [[https://github.com/poudel/harmonique]].
+*** Simple static site generator
 
-2. Write a clone of [[https://httpbin.org]] with a subset of the actual
-   APIs if not everything. It is supposed to teach me how to write a
-   trivial http server in that language.
+Write a simple static site generator. You can port
+[[https://github.com/poudel/harmonique]].
+
+**** [[https://github.com/poudel/go-static-sites][Go static sites]]
+
+I learned a bit more about the way ~io~ is done in Go. I also learned
+how to use external libraries. I'm still getting used to the way error
+handling is done in the Go land. I played around with structs. I want
+to learn how to write tests.
+
+*** Partial httpbin.org clone
+
+Write a clone of [[https://httpbin.org]] with a subset of the actual APIs
+if not everything. It is supposed to teach me how to write a
+trivial http server in that language.
 
 ** Applied
 
