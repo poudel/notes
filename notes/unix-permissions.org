@@ -1,0 +1,6 @@
+#+TITLE: Unix Permissions
+
+
+* Links
+** [[http://permissions-calculator.org/]] Permissions calculator
+** [[https://stackoverflow.com/a/31151508]]
