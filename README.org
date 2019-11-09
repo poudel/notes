@@ -16,6 +16,7 @@ some sort of ad-hoc semantic hierarchy.
 *** [[file:notes/emacs.org][Emacs]]
 *** Linux/Unix
 **** [[file:notes/unix-permissions.org][Unix permissions]]
+**** [[file:notes/shell-scripts.org][Shell scripts]]
 *** Learning
 **** [[file:notes/learning-language.org][Learning programming languages]]
 **** [[file:notes/common-lisp.org][Learning common-lisp]]

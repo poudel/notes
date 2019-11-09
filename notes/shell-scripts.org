@@ -1,0 +1,25 @@
+#+TITLE: Shell scripts
+
+* Random
+
+** GitHub clone
+
+GitHub clone by just running ~gh username/repo~ command. I don't use
+this anymore since I use ~magit~. Just keeping moving it here from
+somewhere else for posterity.
+
+#+BEGIN_SRC bash
+gh () {
+    if [ ! $1 ]; then
+        echo "Pass repo url or github repo in this format: <username>/<repo>"
+        return 1
+    fi
+
+    if [[ $1 == http* ]] || [[ $1 == git@* ]]
+    then
+        git clone $1 $2
+    else
+        git clone "https://github.com/$1" $2
+    fi
+}
+#+END_SRC
