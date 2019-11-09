@@ -23,3 +23,80 @@ gh () {
     fi
 }
 #+END_SRC
+
+** Nginx logs
+
+Print logs in ~26.29.22.77 "GET /project/ 200~ format. 
+
+#+BEGIN_SRC bash
+sudo tail -f /var/log/nginx/access.log | awk '{print $1 " " $6 " " $7 " " $9'
+#+END_SRC
+
+** Adjusting brightness the hard way
+
+Not exactly a shell script. I wanted to write some C and I was having
+trouble with the brightness settings in KDE power management. I wrote
+this to run from the command line. I used it for a few months. That is
+how long it took me to figure out that I had not installed
+~powerdevil~. This is here for posterity as well.
+
+#+BEGIN_SRC c
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+/* Adjust brightness in linux
+
+`./bright` Print current brightness
+`sudo ./bright <number>` Set the brightness to any arbitrary number
+`sudo ./bright d` Set brightness to 300 (for the day)
+`sudo ./bright n` Set brightness to 150 (for the night)
+
+*/
+
+int main (int argc, char** cx){
+
+  int count;
+  char* brightness;
+  FILE * fp;
+
+  char filepath[] = "/sys/class/backlight/intel_backlight/brightness";
+
+
+  if (argc == 1){
+
+    fp = fopen(filepath, "r");
+
+    if (fp) {
+      printf("Current brightness: ");
+      while ((count = getc(fp)) != EOF){
+	putchar(count);
+      }
+    }
+
+  } else {
+
+    if (geteuid() != 0){
+      printf("Need to run this as root!\n");
+      return 0;
+    }
+
+    if (strcmp(cx[1], "d") == 0){
+      brightness = "300";
+    } else if (strcmp(cx[1], "n") == 0) {
+      brightness = "150";
+    } else {
+      brightness = cx[1];
+    }
+
+    fp = fopen(filepath, "w");
+    fprintf(fp, brightness);
+    printf("Successfully set brightness to: %s\n", brightness);
+  }
+
+  fclose(fp);
+
+  return 0;
+}
+#+END_SRC
