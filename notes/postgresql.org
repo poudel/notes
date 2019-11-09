@@ -223,5 +223,11 @@ ingest and complex queries. It can be installed as PostgreSQL extension.
 
 Read: [[https://docs.timescale.com/latest/tutorials/tutorial-hello-nyc][Hello NYC timescaledb tutorial]]
 
+
+* links
+** [[https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546][psql cheatsheet]]
+** [[https://pgexercises.com/][PostgreSQL exercises]]
+** [[https://www.sqlite.org/windowfunctions.html][sqlite window functions]] are based on PostgreSQL window functions
 * need to read about
 ** anti joins
+** window function frames

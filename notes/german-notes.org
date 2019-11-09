@@ -1,0 +1,134 @@
+#+TITLE: German notes
+
+* First lesson (2019-09-17)
+
+I stopped going after the first lesson. 
+
+Hören Sie und sprechen Sie nach. -> Listen and repeat
+
+** Nummer/Zahlen 
+
+|-----------+------------------------------------+--------------------------|
+|    Nummer | Grundzahlen (Cardinal Numbers)     | Ordnungszahlen (Ordinal) |
+|-----------+------------------------------------+--------------------------|
+|         0 | null                               |                          |
+|         1 | eins                               | erste                    |
+|         2 | zwei                               | zweite                   |
+|         3 | drei                               | dritte                   |
+|         4 | vier                               | vierte                   |
+|         5 | fünf                               | fünfte                   |
+|         6 | sechs                              | sechste                  |
+|         7 | sieben                             | siebte                   |
+|         8 | acht                               | achte                    |
+|         9 | neun                               | neunte                   |
+|        10 | zehn                               | zehnte                   |
+|        11 | elf                                | elfte                    |
+|        12 | zwölf                              | zwölfte                  |
+|        13 | dreizehn                           | dreizehnte               |
+|        14 | vierzehn                           | vierzehnte               |
+|        15 | fünfzehn                           | fünfzehnte               |
+|        16 | sechzehn                           | sechzehnte               |
+|        17 | siebzehn                           | siebzehnte               |
+|        18 | achtzehn                           | achtzehnte               |
+|        19 | neunzehn                           | neunzehnte               |
+|        20 | zwanzig                            | zwanzigste               |
+|        21 | einundzwanzig                      | einundzwanzigste         |
+|        22 | zweiundzwanzig                     | zweiundzwanzigste        |
+|       ... | ...                                | ...                      |
+|        30 | dreißig                            | +ste after this          |
+|        31 | einunddreißig                      |                          |
+|       ... | ...                                | ...                      |
+|        40 | vierzig                            |                          |
+|        41 | einundvierzig                      |                          |
+|       ... | ...                                | ...                      |
+|       100 | einhundert                         |                          |
+|       101 | einhunderteins                     |                          |
+|       112 | einhundertzwölf                    |                          |
+|       116 | einhundertsechzehn                 |                          |
+|       ... | ...                                |                          |
+|       200 | zweihundert                        |                          |
+|       201 | zweihunderteins                    |                          |
+|       212 | zweihundertzwölf                   |                          |
+|       216 | zweihundertsechzehn                |                          |
+|       ... | ...                                |                          |
+|      1000 | eintausend                         |                          |
+|      1001 | eintausendein                      |                          |
+|      1012 | eintausendzwölf                    |                          |
+|      1016 | eintausendsechzehn                 |                          |
+|      1122 | eintausendeinhundertzweiundzwanzig |                          |
+|   100.000 | hunderttausend                     |                          |
+|   500.000 | fünfhunderttausend                 |                          |
+| 1.000.000 | eine Million                       |                          |
+| 2.000.000 | zwei Millionen                     |                          |
+| 2.000.001 | zwei Millionen eins                |                          |
+|           |                                    |                          |
+
+Fractions
+
+** Greetings
+
+9:15 -> Viertel zehn
+9:30 -> Halb zehn
+9:45 -> Dreiviertel zehn
+
+- Buchstaben / buchstabieren
+Letter/ letters
+
+** ich komm(en)/wohn|leb(en)/lern(en)
+
+
+| ich komm  | e  |
+| du        | st |
+| er/sie/es | t  |
+| wir       | en |
+| ihr       | t  |
+| sie/Sie   | en |
+
+
+** Last Kraft Wagen
+
+** Datum
+
+| Heute      | 17.9 |
+| Gestern    | 16.9 |
+| Vorgestern | 15.9 |
+| Morgen     | 18.9 |
+| Ubermorgen | 19.9 |
+
+
+** Monats
+Januar
+Februar
+März
+April
+Mai
+Junni
+Juli
+August
+September
+Oktober
+November
+Dezember
+
+** Weekdays
+
+Die woche
+---------
+Sonntag
+Montag
+Dienstag
+Mittwoch
+Donnerstag
+Freitag
+
+
+Das Wochenende
+--------------
+Samstag oder Sonnabend
+
+** Seasons
+
+Frühling
+Sommer
+Herbst
+Winter

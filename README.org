@@ -23,4 +23,6 @@ some sort of ad-hoc semantic hierarchy.
 **** [[file:notes/common-lisp.org][Learning common-lisp]]
 **** [[file:notes/curl.org][Learning cURL]]
 ** Other
-** [[file:notes/berlin.org][Berlin]]
+** Germany
+*** [[file:notes/german-notes.org][German language notes]]
+*** [[file:notes/berlin.org][Berlin]]

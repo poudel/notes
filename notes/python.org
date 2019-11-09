@@ -10,8 +10,8 @@
 ** Use ImagicMagic to batch crop images
 
 Once I spent a few hours writing this to crop some screenshots. I
-actually didn't have that many screenshots. Maybe about a hundred.
-Maybe even less.
+actually didn't have a lot of images to go through. Maybe about a
+hundred. Maybe even less.
 
 #+BEGIN_SRC python
 #!/usr/bin/env python
