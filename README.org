@@ -17,6 +17,7 @@ some sort of ad-hoc semantic hierarchy.
 *** Linux/Unix
 **** [[file:notes/unix-permissions.org][Unix permissions]]
 **** [[file:notes/shell-scripts.org][Shell scripts]]
+**** [[file:notes/python.org::*Use%20ImagicMagic%20to%20batch%20crop%20images][Use ImagicMagic to batch crop images]]
 *** Learning
 **** [[file:notes/learning-language.org][Learning programming languages]]
 **** [[file:notes/common-lisp.org][Learning common-lisp]]

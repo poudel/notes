@@ -7,6 +7,102 @@
 
 * snippets/examples of
 
+** Use ImagicMagic to batch crop images
+
+Once I spent a few hours writing this to crop some screenshots. I
+actually didn't have that many screenshots. Maybe about a hundred.
+Maybe even less.
+
+#+BEGIN_SRC python
+#!/usr/bin/env python
+
+import logging as l
+import logging.config
+import os
+import glob
+import subprocess
+from datetime import datetime
+
+
+DEFAULT_LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+        },
+    }
+}
+logging.config.dictConfig(DEFAULT_LOGGING)
+
+
+SRC_IMG_PATTERN = "Screenshot_*.png"
+CROP_RESOLUTION = "532x826+843+95"
+OUTPUT_EXT = "jpg"
+
+
+def get_convert_command(src_filename, target_filename, resolution):
+    """
+    convert Screenshot_20190518_115917.png -crop 532x699+843+95 cropped1.jpg 
+    convert Screenshot_20190518_120200.png -crop 532x826+843+95 cropped1.jpg
+    """
+    return ["convert", src_filename, "-crop", resolution, target_filename]
+
+
+def get_file_paths(pattern, output_dir, output_ext=OUTPUT_EXT):
+    l.info("Glob search: %s", pattern)
+    paths = glob.glob(SRC_IMG_PATTERN)
+    l.info("%s files found", len(paths))
+
+    def output(p):
+        fname, ext = os.path.splitext(p)
+        return os.path.join(output_dir, f"{fname}.{output_ext}")
+
+    fpaths = {
+        p: output(p)
+        for p in paths
+    }
+    return fpaths
+
+
+def convert_all(file_paths, resolution=CROP_RESOLUTION):
+    success, failure = 0, 0
+
+    for src_filename, target_filename in file_paths.items():
+        command = get_convert_command(src_filename, target_filename, resolution)
+        completed_process = subprocess.run(command)
+
+        if completed_process.returncode == 0:
+            success += 1
+        else:
+            failure += 1
+
+        logging.debug("%s -> %s", src_filename, target_filename)
+
+    logging.info("Success: %d, Failure: %d", success, failure)
+
+
+def main(working_dir=".", pattern=SRC_IMG_PATTERN):
+    working_dir = os.path.abspath(working_dir)
+    os.chdir(working_dir)
+    l.info("Set working directory: %s", working_dir)
+
+    now = datetime.now().strftime("%H%M%S")
+    output_dir = f"cropped_{now}"
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+
+    logging.info("Set output directory: %s", output_dir)
+
+    file_paths = get_file_paths(pattern, output_dir)
+
+    logging.info("Converting...")
+    convert_all(file_paths)
+
+
+if __name__ == "__main__":
+    main()
+#+END_SRC
 ** call an async function without await
 
 A function decorated with ~async~ decorator can be called without
