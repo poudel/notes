@@ -2,6 +2,27 @@
 
 * Random
 
+** Tmux aliases
+
+#+BEGIN_SRC bash
+alias tk='tmux kill-session'
+alias td='tmux detach-client'
+alias ta='tmux attach'
+alias taa='tmux attach -t'
+alias tl='tmuxp load'
+alias tls='tmux list-sessions'
+#+END_SRC
+
+** Shred file
+
+#+BEGIN_SRC bash
+# -v  ## Verbose
+# -n  ## Overwrite n times
+# -u  ## Truncate and remove file after overwriting
+# -z  ## add a final overwrite with zeros to hide shredding
+alias shdx='shred -v -n 25 -u -z'
+#+END_SRC
+
 ** GitHub clone
 
 GitHub clone by just running ~gh username/repo~ command. I don't use
