@@ -1,4 +1,4 @@
-#+TITLE: Shell scripts
+#+TITLE: Linux/Unix
 
 * Random
 
@@ -121,3 +121,9 @@ int main (int argc, char** cx){
   return 0;
 }
 #+END_SRC
+** Permissions
+*** [[http://permissions-calculator.org/]] Permissions calculator
+*** [[https://stackoverflow.com/a/31151508]]
+
+* Links
+** https://lobste.rs/s/hwpbrf/today_i_discovered_dev_full_let_s_talk
