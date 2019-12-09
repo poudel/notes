@@ -76,6 +76,21 @@ psql -h localhost -p 3333 postgres
 
 More detail: https://www.postgresql.org/docs/8.2/ssh-tunnels.html
 
+** export to csv file with headers using psql
+
+A table
+
+#+BEGIN_SRC text
+\copy table_name to 'filename.csv' csv header
+#+END_SRC
+
+A query
+
+
+#+BEGIN_SRC text
+\copy (select * from table_name) to 'filename.csv' with csv
+#+END_SRC
+
 ** connect pgadmin to ssh tunnel server
 
 Follow the step above and connect to it as any normal database. No

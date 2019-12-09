@@ -1,3 +1,15 @@
+#+TITLE: Emacs
+
+* Emacs lisp intro
+
+*defun template*
+
+#+BEGIN_SRC emacs-lisp
+(defun FUNCTION-NAME (ARGUMENTS...)
+  "OPTIONAL-BUT-RECOMMENDED-DOCUMENTATION..."
+  (interactive ARGUMENT-PASSING-INFO)  ; if the function is interactive
+  BODY...)
+#+END_SRC
 
 * Links
 ** [[https://ambrevar.xyz/emacs-eshell/][Eshell as the main shell]]
