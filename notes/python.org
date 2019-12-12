@@ -1,6 +1,73 @@
+#+TITLE: Python
+
+* Pandas
+
+** From documentation
+
+*** Overview
+
+Link: [[https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html][overview]]
+
+- Pandas is built on top of NumPy.
+- Primary data structures are ~Series~ (1 dimensional) and ~DataFrame~ (2 dimensional).
+- ~DataFrame~ is analogous to R's ~data.frame~.
+
+** From Pycon 2015 talk by Brandon Rhodes
+
+Link: [[https://www.youtube.com/watch\?v\=5JnMutdy6Fw][Pandas From Ground Up]]
+
+
+* 500 lines or less
+
+#+BEGIN_QUOTE
+The Python Interpreter is a virtual machine, it is a stack machine i.e. it
+manipulates several stacks to perform its operations (as opposed with
+a register machine, which writes to and reads from particular memory
+locations).
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+The Python Interpreter is a /bytecode interpreter/: its input is
+instruction sets called bytecode.
+#+END_QUOTE
+
+- Code object: Bytecode is an intermediate representation of Python
+  code. It contains a set of instructions to be executed.
+
+#+BEGIN_SRC python
+class Interpreter:
+    def __init__(self):
+        self.stack = []
+
+    def LOAD_VALUE(self, number):
+        self.stack.append(number)
+
+    def PRINT_ANSWER(self):
+        answer = self.stack.pop()
+        print(answer)
+
+    def ADD_TWO_VALUES(self):
+        first_num = self.stack.pop()
+        second_num = self.stack.pop()
+        total = first_num + second_num
+        self.stack.append(total)
+
+    def run_code(self, what_to_execute):
+        instructions = what_to_execute["instructions"]
+        numbers = what_to_execute["numbers"]
+
+        for each_step in instructions:
+            instructions, argument = each_step
+            if instructions == "LOAD_VALUE":
+                number = numbers[argument]
+                self.LOAD_VALUE(number)
+            elif instructions == "ADD_TWO_VALUES":
+                self.ADD_TWO_VALUES()
+            elif instructions == "PRINT_ANSWER":
+                self.PRINT_ANSWER()
+#+END_SRC
 
 * how to
-
 * modules/packages
 ** [[https://pexpect.readthedocs.io/en/stable/][pexpect]]: to control other application, to test cli/shell output
 
